@@ -5,7 +5,7 @@ import {Rating}from '../components/Rating'
 import products from '../products'
 
 function ProductScreen({match}) {
-    const product = products.find((p) =>  p._id == match.params.id)
+    const product = products.find((p) =>  p._id === match.params.id)
     return (
         <div>
            <Link to = '/' className = 'btn btn-light my-3'> GO BACK </Link>
@@ -33,6 +33,7 @@ function ProductScreen({match}) {
                    </ListGroup>
                </Col>
                <Col md ={3}>
+
                    <Card>
                    <ListGroup variant='flush'>
                        <ListGroup.Item>
@@ -40,11 +41,24 @@ function ProductScreen({match}) {
                               <strong> <Col>Price : {product.price}</Col></strong>
                            </Row>
                        </ListGroup.Item>
-                       <ListGroup.Item>
+
+                      <ListGroup.Item>
                            <Row>
-                              <strong> <Col>Status: {product.countInStock} in STOCK</Col></strong>
+                              <strong> <Col>Status: {product.countInStock} </Col>
+                              <Col> {product.countInStock > 0 ? 'In STOCK ': 'OUT OF STOCK'}</Col></strong>
                            </Row>
-                       </ListGroup.Item>
+                      </ListGroup.Item>
+
+                      <ListGroup.Item>
+                          <Button className='button-block' disabled = {product.countInStock === 0} type = 'button'>
+                              ADD TO CART
+                          </Button>
+
+                          <Button className='button-block' disabled = {product.countInStock === 0} type = 'button'>
+                              BUY NOW
+                          </Button>
+
+                      </ListGroup.Item>
                    </ListGroup>
                    </Card>
                </Col>
