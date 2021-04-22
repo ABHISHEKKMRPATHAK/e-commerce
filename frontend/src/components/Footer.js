@@ -5,7 +5,7 @@ function Footer() {
     return (
             <footer>
                 <Container>
-                    <Row> <Col>Copyright &copy; eSHOPPING</Col></Row>
+                    <Row> <Col>Copyright &copy; eSHOPPING<br/> Made by ABHISHEK KUMAR PATHAK</Col></Row>
             </Container></footer>
     
     )
